@@ -15,13 +15,51 @@
 
 <body>
     <main>
-        <div class="container py-3">
-            <!-- <button id="view-button" type="button" class="btn btn-outline-dark my-3">View</button> -->
 
+        <!-- UPDATE FORM MODAL -->
+        <div class="modal" id="update-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Data</h5>
+                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modal-content">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="save_changes" value="save_changes">Save
+                            changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- VIEW MODAL -->
+        <div class="modal" id="view-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">View Data</h5>
+                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="view-modal-content">
+                        <!-- Modal Content will populated using AJAX -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container py-3">
             <div class="row">
                 <div class="col">
-                    <div class="my-3 px-2 py-2 rounded"
-                        style=" background-color:rgba(158, 158, 158, 0.32);">
+                    <div class="my-3 px-2 py-2 rounded" style=" background-color:rgba(158, 158, 158, 0.32);">
                         <form action="" id="" class="my-3">
                             First Name: <input type="text" class="form-control" id="f_name">
                             Last Name: <input type="text" class="form-control" id="l_name">
@@ -31,7 +69,7 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col mt-3">
                     <div id="view-data">
                         <!-- Data will be displayed here -->
                     </div>
