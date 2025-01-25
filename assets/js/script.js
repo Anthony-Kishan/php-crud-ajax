@@ -112,4 +112,44 @@ $(document).ready(function () {
         $('#view-modal').fadeOut();
         $('#update-modal').fadeOut();
     });
+
+
+
+    // EXPORT CSV FILE
+    $(document).on("click", ".csv-btn", function () {
+        $.ajax({
+            type: "POST",
+            url: "./controller/csv_export.php",
+            data: { csv: 1 },
+            success: function (data) {
+                window.location.href = './controller/csv_export.php';
+            }
+        });
+    });
+
+
+    // EXPORT XLSX FILE
+    $(document).on("click", ".xlsx-btn", function () {
+        $.ajax({
+            type: "POST",
+            url: "./controller/xlsx_export.php",
+            data: { xlsx: 1 },
+            success: function (data) {
+                window.location.href = './controller/xlsx_export.php';
+            }
+        });
+    })
+
+    // EXPORT PDF FILE
+    $(document).on("click", ".pdf-btn", function () {
+        $.ajax({
+            type: "POST",
+            url: "./controller/pdf_export.php",
+            data: { pdf: 1 },
+            success: function (data) {
+                window.location.href = './controller/pdf_export.php';
+
+            }
+        });
+    })
 });

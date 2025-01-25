@@ -22,7 +22,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Update Data</h5>
-                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body" id="modal-content">
 
@@ -43,7 +44,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">View Data</h5>
-                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body" id="view-modal-content">
                         <!-- Modal Content will populated using AJAX -->
@@ -58,7 +60,7 @@
 
         <div class="container py-3">
             <div class="row">
-                <div class="col">
+                <div class="col-4">
                     <div class="my-3 px-2 py-2 rounded" style=" background-color:rgba(158, 158, 158, 0.32);">
                         <form action="" id="" class="my-3">
                             First Name: <input type="text" class="form-control" id="f_name">
@@ -68,13 +70,16 @@
                         </form>
                     </div>
                 </div>
+            </div>
 
+            <div class="row">
                 <div class="col mt-3">
                     <div id="view-data">
                         <!-- Data will be displayed here -->
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 
