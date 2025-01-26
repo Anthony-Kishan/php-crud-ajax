@@ -20,14 +20,25 @@ $(document).ready(function () {
         var contact_number = $("#contact_number").val();
         var address = $("#address").val();
 
+        var phone_number_1 = $("#phone_number_1").val();
+        var phone_number_2 = $("#phone_number_2").val();
+        var category = $("#category").val();
+        var warranty_guarantee_start = $("#warranty_guarantee_start").val();
+
+        var warranty_guarantee_end = $("#warranty_guarantee_end").val();
+        var product_quantity = $("#product_quantity").val();
+        var product_price = $("#product_price").val();
+        var note = $("#note").val();
+
         $.ajax({
             url: "index.php",
             type: "POST",
-            data: { first_name: f_name, last_name: l_name, contact_number: contact_number, address: address },
+            data: {
+                first_name: f_name, last_name: l_name, contact_number: contact_number, address: address, phone_number_1: phone_number_1, phone_number_2: phone_number_2, category: category, warranty_guarantee_start: warranty_guarantee_start, warranty_guarantee_end: warranty_guarantee_end, product_quantity: product_quantity, product_price: product_price, note: note,
+            },
             success: function (data) {
                 if (data == 1) {
                     loadtable();
-                    $('#add-cust-modal').fadeOut();
                 } else {
                     alert("Data didn't insert: " + data);
                 }
@@ -134,7 +145,6 @@ $(document).ready(function () {
         $('#view-modal').fadeOut();
         $('#update-modal').fadeOut();
         $('#add-cust-modal').fadeOut();
-
     });
 
 

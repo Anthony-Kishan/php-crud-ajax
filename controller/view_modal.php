@@ -11,11 +11,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["id"])) {
 
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $output .= "
-                <p><strong>First Name:</strong> {$row["first_name"]}</p>
-                <p><strong>Last Name:</strong> {$row["last_name"]}</p>
-                <p><strong>Contact Number:</strong> {$row["contact_number"]}</p>
-                <p><strong>Address:</strong> {$row["address"]}</p>";
+            ?>
+            <p><strong>First Name: </strong><?= $row["first_name"] ?></p>
+            <p><strong>Last Name: </strong><?= $row["last_name"] ?></p>
+            <p><strong>Contact Number: </strong><?= $row["contact_number"] ?></p>
+            <p><strong>Address: </strong><?= $row["address"] ?></p>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
+                <a href="./controller/customer_more_details.php?id=<?= $row['id']; ?>" type="button"
+                    class="btn btn-primary more-details-btn" target="_blank">More Details</a>
+            </div>
+            <?php
         }
     }
     echo $output;

@@ -1,0 +1,13 @@
+id
+first_name
+last_name
+contact_number
+address
+phone_number_1
+phone_number_2
+category
+warranty_guarantee_start
+warranty_guarantee_end
+product_quantity
+product_price
+note
