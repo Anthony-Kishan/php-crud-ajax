@@ -12,19 +12,22 @@ $(document).ready(function () {
     loadtable();
 
     // INSERT DATA
-    $('#data-submit-button').on('click', function (e) {
+    $(document).on('click', '#data-submit-button', function (e) {
         e.preventDefault();
 
         var f_name = $("#f_name").val();
         var l_name = $("#l_name").val();
+        var contact_number = $("#contact_number").val();
+        var address = $("#address").val();
 
         $.ajax({
             url: "index.php",
             type: "POST",
-            data: { first_name: f_name, last_name: l_name },
+            data: { first_name: f_name, last_name: l_name, contact_number: contact_number, address: address },
             success: function (data) {
                 if (data == 1) {
                     loadtable();
+                    $('#add-cust-modal').fadeOut();
                 } else {
                     alert("Data didn't insert: " + data);
                 }
@@ -44,6 +47,8 @@ $(document).ready(function () {
             success: function (data) {
                 if (data == 1) {
                     $(element).closest("tr").fadeOut();
+                    // loadtable();
+                    window.location.reload();
                 } else {
                     alert("Can't Delete record");
                 }
@@ -73,11 +78,13 @@ $(document).ready(function () {
         var stuID = $("#save_changes_id").val();
         var stuFName = $("#update_f_name").val();
         var stuLName = $("#update_l_name").val();
+        var contact_number = $("#update_contact_number").val();
+        var address = $("#update_address").val();
 
         $.ajax({
             type: "POST",
             url: "./controller/update_data.php",
-            data: { id: stuID, first_name: stuFName, last_name: stuLName },
+            data: { id: stuID, first_name: stuFName, last_name: stuLName, contact_number: contact_number, address: address },
             success: function (data) {
                 if (data == 1) {
                     loadtable();
@@ -85,6 +92,21 @@ $(document).ready(function () {
                 } else {
                     alert("Can't Update record" + data);
                 }
+            }
+        });
+    })
+
+
+    // ADD CUSTOMER DATA
+    $(document).on("click", "#add_cust_btn", function () {
+        $('#add-cust-modal').fadeIn();
+        $.ajax({
+            type: "POST",
+            url: "./controller/add_customer.php",
+            data: { add_cust: 1 },
+            success: function (data) {
+                $('#add-cust-modal-content').html(data);
+
             }
         });
     })
@@ -111,6 +133,8 @@ $(document).ready(function () {
     $(document).on("click", ".close-btn", function () {
         $('#view-modal').fadeOut();
         $('#update-modal').fadeOut();
+        $('#add-cust-modal').fadeOut();
+
     });
 
 
@@ -152,4 +176,19 @@ $(document).ready(function () {
             }
         });
     })
+
+
+    // LIVE SEARCH
+    $("#search").on("keyup", function () {
+        var search_term = $(this).val();
+
+        $.ajax({
+            type: "POST",
+            url: "./controller/live_search.php",
+            data: { search: search_term },
+            success: function (data) {
+                $("#view-data").html(data);
+            }
+        });
+    });
 });

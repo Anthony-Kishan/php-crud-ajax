@@ -9,12 +9,12 @@ header("Expires: 0");
 $sql = "SELECT * FROM students";
 $result = mysqli_query($conn, query: $sql);
 
-echo "First Name, Last Name,\n";
+echo "First Name, Last Name, Contact Number, Address\n";
 
 if (mysqli_num_rows($result) > 0) {
     if ($result) {
         while ($rows = $result->fetch_assoc()) {
-            echo "{$rows['first_name']},{$rows['last_name']},\n";
+            echo "{$rows['first_name']}, {$rows['last_name']}, {$rows['contact_number']}, {$rows['address']},\n";
         }
     }
 

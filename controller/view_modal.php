@@ -12,8 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["id"])) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $output .= "
-                <p>First Name: {$row["first_name"]}</p>
-                <p>Last Name: {$row["last_name"]}</p>";
+                <p><strong>First Name:</strong> {$row["first_name"]}</p>
+                <p><strong>Last Name:</strong> {$row["last_name"]}</p>
+                <p><strong>Contact Number:</strong> {$row["contact_number"]}</p>
+                <p><strong>Address:</strong> {$row["address"]}</p>";
         }
     }
     echo $output;

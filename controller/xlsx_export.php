@@ -27,10 +27,12 @@ echo '<Table>';
 echo '<Row>';
 echo '<Cell><Data ss:Type="String">First Name</Data></Cell>';
 echo '<Cell><Data ss:Type="String">Last Name</Data></Cell>';
+echo '<Cell><Data ss:Type="String">Contact Number</Data></Cell>';
+echo '<Cell><Data ss:Type="String">Address</Data></Cell>';
 echo '</Row>';
 
 // Fetch data from the database
-$sql = "SELECT first_name, last_name FROM students";
+$sql = "SELECT first_name, last_name, contact_number, address FROM students";
 $result = mysqli_query($conn, $sql);
 
 if ($result && mysqli_num_rows($result) > 0) {
@@ -39,6 +41,8 @@ if ($result && mysqli_num_rows($result) > 0) {
         echo '<Row>';
         echo '<Cell><Data ss:Type="String">' . htmlspecialchars($row['first_name']) . '</Data></Cell>';
         echo '<Cell><Data ss:Type="String">' . htmlspecialchars($row['last_name']) . '</Data></Cell>';
+        echo '<Cell><Data ss:Type="String">' . htmlspecialchars($row['contact_number']) . '</Data></Cell>';
+        echo '<Cell><Data ss:Type="String">' . htmlspecialchars($row['address']) . '</Data></Cell>';
         echo '</Row>';
     }
 } else {

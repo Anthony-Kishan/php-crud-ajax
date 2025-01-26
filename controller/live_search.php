@@ -1,9 +1,14 @@
 <?php
+
 include '../database.php';
 
-$sql = 'SELECT * FROM students';
+$search_value = $_POST["search"];
+
+$sql = "SELECT * FROM students WHERE first_name LIKE '%{$search_value}%' OR last_name LIKE '%{$search_value}%' OR contact_number LIKE '%{$search_value}%' ";
 
 $result = mysqli_query($conn, $sql);
+
+$output = "";
 
 if (mysqli_num_rows($result) > 0) {
     ?>
@@ -29,15 +34,13 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
             </th>
         </tr>
-
         <?php
-        $sl = 0;
+
         while ($row = mysqli_fetch_assoc($result)) {
-            $sl++;
             ?>
             <tr>
                 <td class='align-content-center' style='width:  5.33%'>
-                    <?= $sl ?>
+                    <?= $row["id"] ?>
                 </td>
                 <td class='align-content-center'>
                     <?= $row["first_name"] . ' ' . $row["last_name"] ?>
@@ -48,7 +51,7 @@ if (mysqli_num_rows($result) > 0) {
                 <td class='align-content-center'>
                     <?= $row["address"] ?>
                 </td>
-                <td class='text-center align-content-center' style='width:  5.33%'>
+                <td class='text-center align-content-center' style='width:  8.33%'>
                     <div class='dropdown'>
                         <a class='btn btn-secondary dropdown-toggle' href='javascript:void(0)' role='button'
                             id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -65,10 +68,21 @@ if (mysqli_num_rows($result) > 0) {
             </tr>
             <?php
         }
+
         mysqli_close($conn);
-} else { ?>
-        <h2>No record found.</h2>
-        <?php
+
+        echo $output;
+
+} else {
+    echo "No record found.";
 }
+
+
+
+
+
+
+
+
 
 ?>

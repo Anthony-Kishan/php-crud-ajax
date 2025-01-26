@@ -16,6 +16,27 @@
 <body>
     <main>
 
+        <!-- ADD CUSTOMER FORM MODAL -->
+        <div class="modal" id="add-cust-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Customer</h5>
+                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="add-cust-modal-content">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="data-submit-button" value="add_customer">Add
+                            Customer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- UPDATE FORM MODAL -->
         <div class="modal" id="update-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
@@ -52,6 +73,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary more-details-btn" data-bs-dismiss="modal">More
+                            Details</button>
                     </div>
                 </div>
             </div>
@@ -60,15 +83,22 @@
 
         <div class="container py-3">
             <div class="row">
-                <div class="col-4">
-                    <div class="my-3 px-2 py-2 rounded" style=" background-color:rgba(158, 158, 158, 0.32);">
-                        <form action="" id="" class="my-3">
-                            First Name: <input type="text" class="form-control" id="f_name">
-                            Last Name: <input type="text" class="form-control" id="l_name">
-                            <button value="submit" type="submit" id="data-submit-button"
-                                class="btn btn-dark my-3">Submit</button>
-                        </form>
-                    </div>
+                <div class="col-6">
+                    <h1>Customer Management</h1>
+                </div>
+                <div class="col-6">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item" id="search-bar">
+                            <input type="text" class="form-control" id="search" autocomplete="off" placeholder="search">
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="btn btn-primary" id="add_cust_btn" name="add_cust_btn" aria-current="page"
+                                href="javascript:void(0)">Add Customer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-danger" aria-current="page" href="#">Delete Customer</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
