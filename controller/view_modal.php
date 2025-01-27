@@ -12,15 +12,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["id"])) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             ?>
-            <p><strong>First Name: </strong><?= $row["first_name"] ?></p>
-            <p><strong>Last Name: </strong><?= $row["last_name"] ?></p>
-            <p><strong>Contact Number: </strong><?= $row["contact_number"] ?></p>
-            <p><strong>Address: </strong><?= $row["address"] ?></p>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="border rounded p-3 h-100">
+                        <h6 class="text-muted mb-2">Customer Name</h6>
+                        <p class="h5 mb-0"><?php echo $row["first_name"] . " " . $row["last_name"]; ?></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="border rounded p-3 h-100">
+                        <h6 class="text-muted mb-2">Contact Number</h6>
+                        <p class="h5 mb-0"><?php echo $row["contact_number"]; ?></p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="border rounded p-3">
+                        <h6 class="text-muted mb-2">Address</h6>
+                        <p class="h5 mb-0"><?php echo $row["address"]; ?></p>
+                    </div>
+                </div>
+            </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-light btn-lg px-4 close-btn" data-bs-dismiss="modal">Close</button>
                 <a href="./controller/customer_more_details.php?id=<?= $row['id']; ?>" type="button"
-                    class="btn btn-primary more-details-btn" target="_blank">More Details</a>
+                    class="btn btn-info btn-lg px-4 more-details-btn" target="_blank">More Details</a>
             </div>
             <?php
         }

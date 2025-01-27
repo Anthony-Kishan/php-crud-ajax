@@ -9,13 +9,26 @@ header("Expires: 0");
 $sql = "SELECT * FROM students";
 $result = mysqli_query($conn, query: $sql);
 
-echo "First Name, Last Name, Contact Number, Address\n";
 
 if (mysqli_num_rows($result) > 0) {
     if ($result) {
-        while ($rows = $result->fetch_assoc()) {
-            echo "{$rows['first_name']}, {$rows['last_name']}, {$rows['contact_number']}, {$rows['address']},\n";
+        $output = fopen('php://output', 'w');
+
+        $fieldNames = [];
+        $columns = mysqli_fetch_fields($result);
+
+        foreach ($columns as $column) {
+            $fieldNames[] = $column->name;
         }
+
+        fputcsv($output, $fieldNames);
+
+        foreach ($result as $row) {
+            fputcsv($output, $row);
+        }
+
+        fclose($output);
+        exit;
     }
 
 } else {

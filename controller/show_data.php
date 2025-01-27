@@ -58,10 +58,10 @@ if (mysqli_num_rows($result) > 0) {
                 </td>
                 <td class='text-center align-content-center' style='width:  5.33%'>
                     <div class="d-flex gap-2 justify-content-end">
-                        <button class='btn btn-sm btn-info view-btn' data-id='<?= $row["id"] ?>'><i
-                                class="fas fa-eye"></i></button>
-                        <button class='btn btn-sm btn-primary update-btn' data-id='<?= $row["id"] ?>'><i
-                                class="fas fa-edit"></i></button>
+                        <button class='btn btn-sm btn-info view-btn' data-id='<?= $row["id"] ?>' data-bs-toggle="modal"
+                            data-bs-target="#view-modal"><i class="fas fa-eye"></i></button>
+                        <button class='btn btn-sm btn-primary update-btn' data-id='<?= $row["id"] ?>' data-bs-toggle="modal"
+                            data-bs-target="#update-modal"><i class="fas fa-edit"></i></button>
                         <button class='btn btn-sm btn-danger delete-btn' data-id='<?= $row["id"] ?>'><i
                                 class="fas fa-trash"></i></button>
                     </div>

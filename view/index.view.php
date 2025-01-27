@@ -50,20 +50,22 @@
         </div>
 
         <!-- UPDATE FORM MODAL -->
-        <div class="modal" id="update-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal col-12 fade" id="update-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header border-0 bg-primary text-white p-4 rounded-top-4">
                         <h5 class="modal-title">Update Data</h5>
-                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal"
+                        <button type="button" class="btn-close btn-close-white close-btn" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body" id="modal-content">
-
+                        <!-- Modal Content will populated using AJAX -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="save_changes" value="save_changes">Save
+                        <button type="button" class="btn btn-light btn-lg px-4 close-btn"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary btn-lg px-4" id="save_changes"
+                            value="save_changes">Save
                             changes</button>
                     </div>
                 </div>
@@ -72,22 +74,17 @@
 
 
         <!-- VIEW MODAL -->
-        <div class="modal" id="view-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal col-12 fade" id="view-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header border-0 bg-info text-white p-4 rounded-top-4">
                         <h5 class="modal-title">View Data</h5>
-                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal"
+                        <button type="button" class="btn-close btn-close-white close-btn" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body" id="view-modal-content">
                         <!-- Modal Content will populated using AJAX -->
                     </div>
-                    <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
-                        <a href="./view/customer_more_details.view.php" value="more_details" type="button"
-                            class="btn btn-primary more-details-btn">More Details</a>
-                    </div> -->
                 </div>
             </div>
         </div>

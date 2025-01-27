@@ -19,12 +19,10 @@ $(document).ready(function () {
         var l_name = $("#l_name").val();
         var contact_number = $("#contact_number").val();
         var address = $("#address").val();
-
         var phone_number_1 = $("#phone_number_1").val();
         var phone_number_2 = $("#phone_number_2").val();
         var category = $("#category").val();
         var warranty_guarantee_start = $("#warranty_guarantee_start").val();
-
         var warranty_guarantee_end = $("#warranty_guarantee_end").val();
         var product_quantity = $("#product_quantity").val();
         var product_price = $("#product_price").val();
@@ -91,15 +89,22 @@ $(document).ready(function () {
         var stuLName = $("#update_l_name").val();
         var contact_number = $("#update_contact_number").val();
         var address = $("#update_address").val();
+        var phone_number_1 = $("#update_phone_number_1").val();
+        var phone_number_2 = $("#update_phone_number_2").val();
+        var category = $("#update_category").val();
+        var warranty_guarantee_start = $("#update_warranty_guarantee_start").val();
+        var warranty_guarantee_end = $("#update_warranty_guarantee_end").val();
+        var product_quantity = $("#update_product_quantity").val();
+        var product_price = $("#update_product_price").val();
+        var note = $("#update_note").val();
 
         $.ajax({
             type: "POST",
             url: "./controller/update_data.php",
-            data: { id: stuID, first_name: stuFName, last_name: stuLName, contact_number: contact_number, address: address },
+            data: { id: stuID, first_name: stuFName, last_name: stuLName, contact_number: contact_number, address: address, phone_number_1: phone_number_1, phone_number_2: phone_number_2, category: category, warranty_guarantee_start: warranty_guarantee_start, warranty_guarantee_end: warranty_guarantee_end, product_quantity: product_quantity, product_price: product_price, note: note },
             success: function (data) {
                 if (data == 1) {
                     loadtable();
-                    $('#update-modal').fadeOut();
                 } else {
                     alert("Can't Update record" + data);
                 }
@@ -122,8 +127,6 @@ $(document).ready(function () {
         });
     })
 
-
-
     // SHOW VIEW MODAL
     $(document).on("click", ".view-btn", function () {
         $('#view-modal').fadeIn();
@@ -138,16 +141,6 @@ $(document).ready(function () {
             }
         });
     })
-
-
-    // CLOSE THE MODAL
-    $(document).on("click", ".close-btn", function () {
-        $('#view-modal').fadeOut();
-        $('#update-modal').fadeOut();
-        $('#add-cust-modal').fadeOut();
-    });
-
-
 
     // EXPORT CSV FILE
     $(document).on("click", ".csv-btn", function () {
