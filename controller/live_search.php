@@ -4,7 +4,7 @@ include '../database.php';
 
 $search_value = $_POST["search"];
 
-$sql = "SELECT * FROM students WHERE first_name LIKE '%{$search_value}%' OR last_name LIKE '%{$search_value}%' OR contact_number LIKE '%{$search_value}%' ";
+$sql = "SELECT * FROM students WHERE first_name LIKE '%{$search_value}%' OR last_name LIKE '%{$search_value}%' OR contact_number LIKE '%{$search_value}%' OR address LIKE '%{$search_value}%' ";
 
 $result = mysqli_query($conn, $sql);
 
