@@ -13,6 +13,12 @@
     <!-- FONTAWESOME -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>SSB Technologies</title>
@@ -20,7 +26,6 @@
 
 <body>
     <main>
-
         <!-- ADD CUSTOMER FORM MODAL -->
         <div class="modal col-12 fade" id="add-cust-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
@@ -72,7 +77,6 @@
             </div>
         </div>
 
-
         <!-- VIEW MODAL -->
         <div class="modal col-12 fade" id="view-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
@@ -88,7 +92,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="container py-3">
             <div class="row">
@@ -144,12 +147,11 @@
         </div>
     </main>
 
-
-
+    <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
